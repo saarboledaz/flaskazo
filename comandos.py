@@ -24,7 +24,6 @@ def verContenido(ruta):
 
 def verContenidoArchivo():
     ls = str(subprocess.check_output("ls -l /files/", shell = True))
-    ls = ls.split()
     ls = ls.split('\\')
     aux = []
     l = []
