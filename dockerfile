@@ -10,6 +10,7 @@ COPY . .
 #Install the dependencies
 RUN apt-get -y update
 RUN pip3 install -U Flask
+RUN pip3 install flask_cors
 
 #Expose the required port
 EXPOSE 5000

@@ -20,13 +20,24 @@ def verContenido(ruta):
             'nombre': aux[7]})
     return l
 
-def verContenidoArchivo(nombre):
-    cat = subprocess.run(['cat', nombre],stdout = subprocess.PIPE,stderr=subprocess.PIPE, universal_newlines=True)
+
+
+def verContenidoArchivo():
+    ls = str(subprocess.check_output("ls -l /files/", shell = True))
+    ls = ls.split()
+    ls = ls.split('\\')
+    aux = []
     l = []
-    l.append({
-        "nombre":nombre,
-        "contenido":cat.stdout
-    })
+    for elemento in ls[1:len(ls)-1]:
+        aux = elemento.split(' ')
+        aux = [x for x in aux if x]
+        aux.pop(1)
+        nombre = aux[7]
+        cat = subprocess.run(['cat', "/files/{}".format(nombre)],stdout = subprocess.PIPE,stderr=subprocess.PIPE, universal_newlines=True)
+        l.append({
+            "nombre":nombre,
+            "contenido":cat.stdout
+        })
     return l
 
 def crearArchivo(nombre, contenido):
