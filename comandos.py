@@ -20,5 +20,5 @@ def verContenidoArchivo():
 
 def crearArchivo(nombre, contenido):
     os.system("touch /files/authors/{}".format(nombre))
-    os.system("echo '{}' >> {}".format(contenido,nombre))
+    os.system("echo '{}' >> /files/authors/{}".format(contenido,nombre))
 
