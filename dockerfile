@@ -15,4 +15,5 @@ RUN pip3 install -U Flask
 EXPOSE 5000
 
 #Run the command
-CMD [“python3”, “./app.py”]
+#CMD [“python3”, “./app.py”]
+CMD ["python -m flask run"]
