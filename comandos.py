@@ -22,3 +22,7 @@ def crearArchivo(nombre, contenido):
     os.system("touch /files/authors/{}".format(nombre))
     os.system("echo '{}' >> /files/authors/{}".format(contenido,nombre))
 
+def createFolders():
+    os.system("mkdir /files/assets/")
+    os.system("mkdir /files/authors/")
+    os.system("cp /usr/src/flaskazo/image.jpg /files/assets/image.jpg")
