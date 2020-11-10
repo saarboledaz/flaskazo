@@ -6,7 +6,7 @@ comandos.createFolders()
 
 app = Flask(__name__)
 
-CORS(app, resources=r'/api/*')
+CORS(app, resources=r'/*')
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 
