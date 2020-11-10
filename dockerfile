@@ -16,4 +16,4 @@ EXPOSE 5000
 
 #Run the command
 #CMD [“python3”, “./app.py”]
-CMD ["python -m flask run"]
+CMD ["flask run --host=0.0.0.0"]
