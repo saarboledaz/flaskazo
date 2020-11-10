@@ -3,7 +3,9 @@ import comandos
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app,resources={r"/api/": {"origins": ""}})
+
+CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 
 
@@ -14,6 +16,7 @@ def get():
     
 @app.route("/api/post", methods=["POST"])
 def post():
+    print(request.json)
     autor = request.json['autor']
     frase = request.json['frase']
     comandos.crearArchivo(autor,frase)
