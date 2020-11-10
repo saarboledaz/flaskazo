@@ -11,6 +11,9 @@ COPY . .
 RUN apt-get -y update
 RUN pip3 install flask
 RUN pip3 install flask_cors
+RUN mkdir /files/assets/
+RUN mkdir /files/authors/
+RUN mv /usr/src/flaskazo/image.jpg /files/assets/image.jpg
 
 #Expose the required port
 EXPOSE 5000
