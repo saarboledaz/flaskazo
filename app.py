@@ -2,6 +2,8 @@ from flask import Flask,jsonify,request,send_file
 import comandos
 from flask_cors import CORS
 
+comandos.createFolders()
+
 app = Flask(__name__)
 
 CORS(app, resources=r'/api/*')
