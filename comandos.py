@@ -23,7 +23,8 @@ def verContenido(ruta):
 
 
 def verContenidoArchivo():
-    ls = str(subprocess.check_output("ls -l /files/", shell = True))
+    ls = str(subprocess.check_output("ls -l /files/authors/", shell = True))
+    print(ls)
     ls = ls.split('\\')
     aux = []
     l = []
@@ -32,7 +33,7 @@ def verContenidoArchivo():
         aux = [x for x in aux if x]
         aux.pop(1)
         nombre = aux[7]
-        cat = subprocess.run(['cat', "/files/{}".format(nombre)],stdout = subprocess.PIPE,stderr=subprocess.PIPE, universal_newlines=True)
+        cat = subprocess.run(['cat', "/files/authors/{}".format(nombre)],stdout = subprocess.PIPE,stderr=subprocess.PIPE, universal_newlines=True)
         l.append({
             "nombre":nombre,
             "contenido":cat.stdout
@@ -40,7 +41,7 @@ def verContenidoArchivo():
     return l
 
 def crearArchivo(nombre, contenido):
-    os.system("touch /files/{}".format(nombre))
+    os.system("touch /files/authors/{}".format(nombre))
     os.system("echo '{}'>> {}".format(contenido,nombre))
 
 def crearCarpeta(nombre):

@@ -20,6 +20,6 @@ def post():
 
 @app.route("/image", methods=["GET"])
 def image():
-    return send_file("/files/image.jpg", mimetype='image/gif')
+    return send_file("/files/assets/image.jpg", mimetype='image/gif')
 
 
