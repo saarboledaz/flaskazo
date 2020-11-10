@@ -3,15 +3,16 @@ import comandos
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)
+CORS(app,resources={r"/api/": {"origins": ""}})
 
 
-@app.route("/get", methods=["GET"])
+
+@app.route("/api/get", methods=["GET"])
 def get():
     elements = comandos.verContenidoArchivo()
     return jsonify(data = elements)
     
-@app.route("/post", methods=["POST"])
+@app.route("/api/post", methods=["POST"])
 def post():
     autor = request.json['autor']
     frase = request.json['frase']
